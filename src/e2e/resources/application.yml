@@ -1,0 +1,11 @@
+services:
+  fraud:
+    url: http://localhost:${stubrunner.runningstubs.fraud.port}
+
+stubrunner:
+  properties:
+    - git.branch=main
+  stubs-mode: REMOTE
+  repository-root: git://git@github.com:<username>/fraud-contract.git
+  ids:
+    - com.example:fraud:0.0.1-SNAPSHOT

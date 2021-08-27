@@ -1,0 +1,10 @@
+= Loan API Documentation
+:toc: left
+:toclevels: 2
+
+[[Loan-Resource]]
+== Loan
+
+include::{snippets}/loan-resource-test/should_loan_failure_when_amount_too_high/custom-auto-section.adoc[]
+
+include::{snippets}/loan-resource-test/should_loan_successfully/custom-auto-section.adoc[]

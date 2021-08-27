@@ -1,0 +1,37 @@
+apply plugin: 'idea'
+
+sourceSets {
+    e2e {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+idea {
+    module {
+        testSourceDirs += file("src/e2e/java")
+        testResourceDirs += file("src/e2e/resources")
+    }
+}
+
+configurations {
+    e2eImplementation.extendsFrom testImplementation
+    e2eRuntimeOnly.extendsFrom testRuntimeOnly
+}
+
+task e2e(type: Test) {
+    description = 'Runs the e2e testing.'
+    group = 'verification'
+    testClassesDirs = sourceSets.e2e.output.classesDirs
+    classpath = sourceSets.e2e.runtimeClasspath
+    outputs.upToDateWhen { false }
+    dependsOn test
+}
+
+check {
+    dependsOn e2e
+}
+
+e2e {
+    useJUnitPlatform()
+}
