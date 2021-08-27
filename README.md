@@ -11,6 +11,12 @@ This demo repository shows how to use spring cloud contract to implement Consume
 - Fork contract [fraud_contract](https://github.com/lynings/fraud-contract)
 - Fork provider repository [fraud](https://github.com/lynings/fraud)
 - Fork consumer repository [loan](https://github.com/lynings/loan)
+  
+Replace your username in `src/e2e/resources/application.yml`
+
+```gradle
+git://https://github.com/<username>/fraud-contract.git"
+```
 
 ## Install
 
